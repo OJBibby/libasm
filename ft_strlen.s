@@ -1,8 +1,8 @@
 section .text
     global _ft_strlen
 _ft_strlen:
-    push ecx
-    xor ecx, ecx
+    push rcx
+    xor rcx, rcx
 
 _ft_strlen_next:
     cmp [edi], byte 0
@@ -13,5 +13,5 @@ _ft_strlen_next:
 
 _exit:
     mov eax, ecx
-    pop ecx
+    pop rcx
     ret
