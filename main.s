@@ -102,7 +102,7 @@ _read_test:
 
     mov edi, eax
     mov esi, read_str
-    mov edx, 10
+    mov edx, 15
     call _ft_read
 
     mov eax, 6
@@ -111,7 +111,7 @@ _read_test:
 
     mov edi, 1
     mov esi, read_str
-    mov edx, 10
+    mov edx, 15
     call _ft_write
     call _newline
     ret
@@ -155,10 +155,10 @@ section .data
     str5 db "This string will be printed.", 0
     str5_len equ $ - str5
 
-    file_read db "ft_strcmp.s"
+    file_read db "Makefile", 0
 
     str_to_dupe db "This will be duplicated.", 0
 
 section .bss
-    copied_str2: resb len2
-    read_str: resb 10
+    copied_str2 resb len2
+    read_str resb 15
