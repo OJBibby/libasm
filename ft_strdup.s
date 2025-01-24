@@ -6,16 +6,17 @@ section .text
     global _ft_strdup
 _ft_strdup:
     push rcx
+    push rdi
     call _ft_strlen
     add eax, 1
     mov edi, eax
     call malloc
-
-_ft_strdup_next:
+    pop rdi
+    push rax
     mov esi, edi
     mov edi, eax
     call _ft_strcpy
-    mov eax, edi
+    pop rax
 
 _exit:
     pop rcx

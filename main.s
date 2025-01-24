@@ -119,13 +119,13 @@ _read_test:
 _strdup_test:
     mov edi, str_to_dupe
     call _ft_strdup
-    add eax, '0'
-    mov edx, 1
+    mov edx, 25
     mov ecx, eax
     mov ebx, 1
     mov eax, 4
     int 80h
 
+    mov edi, ecx
     call free
     call _newline
     ret
@@ -157,7 +157,7 @@ section .data
 
     file_read db "ft_strcmp.s"
 
-    str_to_dupe db "This will be duplicated", 0
+    str_to_dupe db "This will be duplicated.", 0
 
 section .bss
     copied_str2: resb len2
