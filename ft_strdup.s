@@ -5,19 +5,26 @@ extern malloc
 section .text
     global _ft_strdup
 _ft_strdup:
-    push rcx
     push rdi
     call _ft_strlen
-    add eax, 1
-    mov edi, eax
+    add rax, 1
+    mov rdi, rax
+    push rdi
     call malloc
+    cmp eax, dword (0)
+    je _error
+    pop rdi
     pop rdi
     push rax
-    mov esi, edi
-    mov edi, eax
+    mov rsi, rdi
+    mov rdi, rax
     call _ft_strcpy
     pop rax
 
 _exit:
-    pop rcx
     ret
+
+_error:
+    pop rdi
+    pop rdi
+    jmp _exit

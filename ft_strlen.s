@@ -5,13 +5,13 @@ _ft_strlen:
     xor rcx, rcx
 
 _ft_strlen_next:
-    cmp [edi], byte 0
+    cmp [rdi], byte 0
     jz _exit
-    inc ecx
-    inc edi
+    inc rcx
+    inc rdi
     jmp _ft_strlen_next
 
 _exit:
-    mov eax, ecx
+    mov rax, rcx
     pop rcx
     ret
