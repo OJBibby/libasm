@@ -17,9 +17,8 @@ $(OBJ_DIR)%.o: %.s
 
 all: $(NAME)
 
-test: $(NAME) main.s
-	@nasm -f elf64 main.s
-	@ld -m elf_x86_64 -s main.o $(NAME) -lc --dynamic-linker=/lib64/ld-linux-x86-64.so.2
+test: $(NAME) main.c
+	@cc main.c libasm.a -Wall -Wextra -Werror
 
 clean:
 	@printf "$(GREY)Deleting $(BLUE)$(OBJ_DIR)\n"

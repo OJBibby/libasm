@@ -1,23 +1,24 @@
 extern __errno_location
 
 section .text
-    global _ft_read
-_ft_read:
+    global ft_read
+ft_read:
     push rbx
-    mov eax, 3
-    mov ebx, edi
-    mov ecx, esi
+    xor rax, rax
+    mov rbx, rdi
+    mov rcx, rsi
     int 80h
-    jc _error
+    jc error
 
-_exit:
+exit:
     pop rbx
     ret
 
-_error:
+error:
     neg rax
     push rax
     call __errno_location
     pop rbx
-    mov [rax], ebx
-    jmp _exit
+    mov [rax], rbx
+    mov rax, -1
+    jmp exit

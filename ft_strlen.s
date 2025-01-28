@@ -1,17 +1,17 @@
 section .text
-    global _ft_strlen
-_ft_strlen:
+    global ft_strlen
+ft_strlen:
     push rcx
     xor rcx, rcx
 
-_ft_strlen_next:
+ft_strlen_next:
     cmp [rdi], byte 0
-    jz _exit
+    jz exit
     inc rcx
     inc rdi
-    jmp _ft_strlen_next
+    jmp ft_strlen_next
 
-_exit:
+exit:
     mov rax, rcx
     pop rcx
     ret

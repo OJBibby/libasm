@@ -1,16 +1,16 @@
 section .text
-    global _ft_strcpy
-_ft_strcpy:
+    global ft_strcpy
+ft_strcpy:
     xor rax, rax
 
-_ft_strcpy_next:
-    mov byte al, [esi]
-    mov byte [edi], al
-    cmp [edi], byte 0
-    jz _exit
-    inc esi
-    inc edi
-    jmp _ft_strcpy_next
+ft_strcpy_next:
+    mov byte al, [rsi]
+    mov byte [rdi], al
+    cmp byte [rdi], 0
+    jz exit
+    inc rsi
+    inc rdi
+    jmp ft_strcpy_next
 
-_exit:
+exit:
     ret 
