@@ -6,7 +6,7 @@
 /*   By: obibby <obibby@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:44:43 by obibby            #+#    #+#             */
-/*   Updated: 2025/01/28 15:28:16 by obibby           ###   ########.fr       */
+/*   Updated: 2025/01/28 16:32:28 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ void    read_test()
     char    buf[100];
 
     file = fopen("testfile.txt", "w+");
-    fprintf(file, "This will be read.\n");
+    fprintf(file, "This will be read.");
     fclose(file);
     fd = open("testfile.txt", 'r');
     bzero(buf, 100);
-    ft_read(fd, buf, 99);
+    printf("error: %d\n", ft_read(fd, buf, 99));
     close(fd);
     printf("%10s %10s\n", "ft_read:", buf);
     fd = open("testfile.txt", 'r');
