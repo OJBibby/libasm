@@ -3,15 +3,11 @@ extern __errno_location
 section .text
     global ft_write
 ft_write:
-    push rbx
-    mov rcx, rsi
-    mov rbx, rdi
-    mov rax, 4
+    mov rax, 1
     syscall
     jc error
 
 exit:
-    pop rbx
     ret
 
 error:
