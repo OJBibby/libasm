@@ -11,7 +11,7 @@ ft_strdup:
     mov rdi, rax
     push rdi
     call malloc
-    cmp eax, dword (0)
+    cmp rax, qword (0)
     je error
     pop rdi
     pop rdi

@@ -7,7 +7,7 @@ ft_write:
     mov rcx, rsi
     mov rbx, rdi
     mov rax, 4
-    int 80h
+    syscall
     jc error
 
 exit:

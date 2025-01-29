@@ -3,8 +3,8 @@ extern __errno_location
 section .text
     global ft_read
 ft_read:
-    xor rax, rax
-    int 80h
+    mov rax, 0
+    syscall
     jc error
 
 exit:

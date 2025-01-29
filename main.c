@@ -6,7 +6,7 @@
 /*   By: obibby <obibby@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:44:43 by obibby            #+#    #+#             */
-/*   Updated: 2025/01/28 16:32:28 by obibby           ###   ########.fr       */
+/*   Updated: 2025/01/29 13:47:50 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void    strlen_test()
     char *str = "There are 39 characters in this string.";
 
     printf("%10s %10ld\n", "ft_strlen:", ft_strlen(str));
-    printf("%10s %10ld\n", "ft_strlen:", strlen(str));
+    printf("%10s %10ld\n", "strlen:", strlen(str));
 }
 
 void    strcpy_test()
@@ -45,8 +45,8 @@ void    strcmp_test()
 
 void    write_test()
 {
-    write(1, "    write: This will be written.\n", 33);
     ft_write(1, " ft_write: This will be written.\n", 33);
+    write(1, "    write: This will be written.\n", 33);
 }
 
 void    read_test()
@@ -58,16 +58,32 @@ void    read_test()
     file = fopen("testfile.txt", "w+");
     fprintf(file, "This will be read.");
     fclose(file);
+
     fd = open("testfile.txt", 'r');
     bzero(buf, 100);
-    printf("error: %d\n", ft_read(fd, buf, 99));
+    ft_read(fd, buf, 99);
     close(fd);
     printf("%10s %10s\n", "ft_read:", buf);
+
     fd = open("testfile.txt", 'r');
     bzero(buf, 100);
     read(fd, buf, 99);
     close(fd);
     printf("%10s %10s\n", "read:", buf);
+}
+
+void    strdup_test()
+{
+    char    *str = "This string will be duplicated.";
+    char    *str1;
+    char    *str2;
+
+    str1 = ft_strdup(str);
+    printf("%10s %10s\n", "ft_strdup:", str1);
+    str2 = strdup(str);
+    printf("%10s %10s\n", "strdup:", str2);
+    free(str1);
+    free(str2);
 }
 
 int main()
@@ -77,4 +93,5 @@ int main()
     strcmp_test();
     write_test();
     read_test();
+    strdup_test();
 }
